@@ -122,6 +122,10 @@ impl Xlsx {
     pub fn save<P: AsRef<Path>>(&mut self, path: P) {
         self.workbook.save(path).unwrap();
     }
+
+    pub fn save_to_buffer(&mut self) -> Vec<u8> {
+        self.workbook.save_to_buffer().unwrap()
+    }
 }
 
 static FIRST_FORMAT: Lazy<Format> = Lazy::new(|| {

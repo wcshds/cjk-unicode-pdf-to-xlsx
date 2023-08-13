@@ -237,7 +237,7 @@ impl<'b> ChartGraph<'b> {
             std::ops::Bound::Unbounded => r"\u{10FFFF}".to_string(),
         };
         let additional_range_str = format!(r"{}-{}", codepoint_begin, codepoint_end);
-        let condition_str = r"[\u{3100}-\u{312F}\u{31A0}-\u{31BF}\u{4E00}-\u{9FFF}\u{3400}-\u{4DBF}\u{20000}-\u{2A6DF}\u{2A700}-\u{2B73F}\u{2B740}-\u{2B81F}\u{2B820}-\u{2CEAF}\u{2CEB0}-\u{2EBEF}\u{30000}-\u{3134F}\u{31350}-\u{323AF}\u{F900}-\u{FAFF}\u{2F800}-\u{2FA1F}\u{2F00}-\u{2FDF}\u{2E80}-\u{2EFF}\u{31C0}-\u{31EF}\u{2FF0}-\u{2FFF}\u{E000}-\u{F8FF}\u{F0000}-\u{FFFFD}\u{100000}-\u{10FFFD}".to_string() + &additional_range_str + "]";
+        let condition_str = r"[\u{3100}-\u{312F}\u{31A0}-\u{31BF}\u{4E00}-\u{9FFF}\u{3400}-\u{4DBF}\u{20000}-\u{2A6DF}\u{2A700}-\u{2B73F}\u{2B740}-\u{2B81F}\u{2B820}-\u{2CEAF}\u{2CEB0}-\u{2EBEF}\u{30000}-\u{3134F}\u{31350}-\u{323AF}\u{F900}-\u{FAFF}\u{2F800}-\u{2FA1F}\u{2F00}-\u{2FDF}\u{2E80}-\u{2EFF}\u{31C0}-\u{31EF}\u{2FF0}-\u{2FFF}\u{E000}-\u{F8FF}\u{F0000}-\u{FFFFD}\u{100000}-\u{10FFFD}䷌\u{40000}-\u{4FFFF}".to_string() + &additional_range_str + "]";
         static RE: once_cell::sync::OnceCell<regex::Regex> = once_cell::sync::OnceCell::new();
         let character_regex = RE.get_or_init(|| {
             regex::RegexBuilder::new(&condition_str)
