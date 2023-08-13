@@ -6,4 +6,5 @@ fn main() {
 
     // cannot open
     run("./cjk-unicode-pdf/U4E00.pdf", "./result/basic-full.xlsx", 1..=532, 0x4e00..=0x9fff, 100).unwrap();
+    run("./cjk-unicode-pdf/U20000.pdf", "./result/ext-b-full.xlsx", 1..=556, 0x20000..=0x2a6df, 100).unwrap();
 }
